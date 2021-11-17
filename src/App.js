@@ -47,7 +47,7 @@ function App() {
        <Route path="/create-user">
        <CreateUser  />
        </Route>
-       <Route path="**">
+       <Route path="/**">
            <NotFound />
        </Route>
        
