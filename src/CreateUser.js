@@ -3,7 +3,7 @@ import { useState } from 'react';
 import Button from '@mui/material/Button';
 import { useHistory} from "react-router-dom";
 
-export function CreateUser() {
+export function CreateUser({users,setUsers}) {
   const history =useHistory();
   const [name, setName] = useState("");
   const [pic, setPic] = useState("");
@@ -23,12 +23,8 @@ export function CreateUser() {
     }; //shorthand
       
 
-    fetch(`https://6166c4e813aa1d00170a6715.mockapi.io/myUsers`,
-          {
-            method:"POST",
-            body:JSON.stringify(newUser),
-            headers:{'Content-Type':'application/json'}
-        }).then(()=>history.push("/users"));
+  setUsers([...users,newUser]);
+  history.push("/users");
   };
   return (
 
